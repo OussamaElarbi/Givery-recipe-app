@@ -3,6 +3,8 @@ ThisBuild / scalaVersion := "3.3.6"
 
 maintainer := "Oussama Elarbi Boudihir"
 
+Compile / doc / sources := Seq.empty
+
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
