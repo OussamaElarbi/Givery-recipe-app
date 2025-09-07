@@ -22,4 +22,4 @@ RUN apt-get update && apt-get install -y unzip && \
 WORKDIR /app/app
 
 # Run Play app
-CMD ["bin/recipe-application-givery", "-Dplay.http.secret.key=${PLAY_SECRET}", "-Dconfig.resource=application.conf"]
+CMD ["bin/recipe-application-givery", "-Dplay.http.secret.key=${PLAY_SECRET}", "-Dhttp.port=${PORT}", "-Dconfig.resource=application.conf"]
