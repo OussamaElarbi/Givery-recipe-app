@@ -14,6 +14,7 @@ lazy val root = (project in file("."))
       guice,
       jdbc,
       ehcache,
-      "org.postgresql" % "postgresql" % "42.7.7"
+      "org.postgresql" % "postgresql" % "42.7.7",
+      "org.playframework" %% "play-jdbc-evolutions" % "3.0.8"
     )
   )
