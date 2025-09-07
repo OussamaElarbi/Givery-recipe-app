@@ -10,9 +10,6 @@ class CustomApplicationLoader extends GuiceApplicationLoader() {
     val envSecret = sys.env.get("PLAY_SECRET")
     println(s"=== DEBUG: PLAY_SECRET from env = [${envSecret.getOrElse("NOT SET")}] ===")
 
-    val confSecret = context.initialConfiguration.getOptional[String]("play.http.secret.key")
-    println(s"=== DEBUG: play.http.secret.key from conf = [${confSecret.getOrElse("NOT SET")}] ===")
-
     super.builder(context)
   }
 }
