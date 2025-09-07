@@ -1,1 +1,1 @@
-GET   /   controllers.HelloController.index
+GET   /   controllers.HelloController.index()
