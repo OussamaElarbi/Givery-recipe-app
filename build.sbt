@@ -13,6 +13,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       guice,
       jdbc,
-      ehcache
+      ehcache,
+      "org.postgresql" % "postgresql" % "42.7.7"
     )
   )
