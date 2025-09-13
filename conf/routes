@@ -1,2 +1,5 @@
-+anyhost
-GET   /   controllers.HelloController.index()
+POST    /recipes        org.givery.recipe.api.RecipeApiController.createRecipe()
+GET    /recipes        org.givery.recipe.api.RecipeApiController.listRecipes()
+GET    /recipes/:id        org.givery.recipe.api.RecipeApiController.getRecipeById(id: Long)
+PATCH    /recipes/:id        org.givery.recipe.api.RecipeApiController.updateRecipe(id: Long)
+DELETE    /recipes/:id        org.givery.recipe.api.RecipeApiController.deleteRecipe(id: Long)
