@@ -33,10 +33,7 @@ class JsonErrorHandler @Inject() (env: Environment)(using ec: ExecutionContext) 
       // Not found-like cases
       case _: jakarta.persistence.EntityNotFoundException => (404, RecipeNotFound, None)
       case _: NoSuchElementException                      => (404, RecipeNotFound, None)
-      // Conflict/constraint
-      case _: org.hibernate.exception.ConstraintViolationException =>
-        if (isCreateRecipe(request)) (409, RecipeCreationFailed, Some(requiredFields))
-        else (409, Conflict, None)
+      // constraint
       case _: java.sql.SQLIntegrityConstraintViolationException =>
         if (isCreateRecipe(request)) (409, RecipeCreationFailed, Some(requiredFields))
         else (409, Conflict, None)

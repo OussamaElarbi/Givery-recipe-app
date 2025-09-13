@@ -16,12 +16,11 @@ lazy val root = (project in file("."))
       guice,
       jdbc,
       ehcache,
+      javaJpa,
       "org.postgresql" % "postgresql" % "42.7.7",
       "org.playframework" %% "play-jdbc-evolutions" % "3.0.9",
       "javax.annotation" % "javax.annotation-api" % "1.3.2",
-      "org.playframework" %% "play-java-jpa" % "3.0.9",
-      "org.hibernate.orm" % "hibernate-core" % "7.1.0.Final",
-      "jakarta.persistence" % "jakarta.persistence-api" % "3.2.0"
+      "org.hibernate.orm" % "hibernate-core" % "7.1.0.Final"
     ),
 
     // OpenAPI code generation
