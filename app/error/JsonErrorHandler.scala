@@ -22,7 +22,7 @@ class JsonErrorHandler @Inject() (env: Environment)(using ec: ExecutionContext) 
       else
         (if (message == null || message.trim.isEmpty) defaultClientMessage(statusCode) else message, None)
 
-    Future.successful(Results.Status(200)(payload(msg, required)))
+    Future.successful(Results.Status(statusCode)(payload(msg, required)))
   }
 
   /** Handle 5xx server errors and common exceptions, mapping to appropriate status and JSON payload. */

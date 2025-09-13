@@ -175,6 +175,37 @@ components:
         - serves
         - ingredients
         - cost
+      additionalProperties: false
+      properties:
+        title:
+          type: string
+          maxLength: 100
+          example: Tomato Soup
+        making_time:
+          type: string
+          maxLength: 100
+          example: 15 min
+        serves:
+          type: string
+          maxLength: 100
+          example: 5 people
+        ingredients:
+          type: string
+          maxLength: 300
+          example: onion, tomato, seasoning, water
+        cost:
+          type: integer
+          minimum: 0
+          example: 450
+    UpdateRecipeRequest:
+      type: object
+      required:
+        - title
+        - making_time
+        - serves
+        - ingredients
+        - cost
+      additionalProperties: false
       properties:
         title:
           type: string
@@ -282,36 +313,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecipeListItem'
-    UpdateRecipeRequest:
-      type: object
-      required:
-        - title
-        - making_time
-        - serves
-        - ingredients
-        - cost
-      properties:
-        title:
-          type: string
-          maxLength: 100
-          example: Tomato Soup
-        making_time:
-          type: string
-          maxLength: 100
-          example: 15 min
-        serves:
-          type: string
-          maxLength: 100
-          example: 5 people
-        ingredients:
-          type: string
-          maxLength: 300
-          example: onion, tomato, seasoning, water
-        cost:
-          type: integer
-          minimum: 0
-          example: 450
-
     UpdateRecipeResponse:
       type: object
       properties:
