@@ -1,4 +1,4 @@
-GET     /          controller.Application.index
+GET     /          controller.Application.index()
 POST    /recipes        org.givery.recipe.api.RecipeApiController.createRecipe()
 GET    /recipes        org.givery.recipe.api.RecipeApiController.listRecipes()
 GET    /recipes/:id        org.givery.recipe.api.RecipeApiController.getRecipeById(id: Long)

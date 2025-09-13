@@ -21,8 +21,14 @@ lazy val root = (project in file("."))
       "org.playframework" %% "play-jdbc-evolutions" % "3.0.9",
       "org.playframework" %% "play-logback" % "3.0.9",
       "javax.annotation" % "javax.annotation-api" % "1.3.2",
-      "org.hibernate.orm" % "hibernate-core" % "7.1.0.Final"
+      "org.hibernate.orm" % "hibernate-core" % "7.1.0.Final",
+      "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.2" % Test,
+      "org.mockito" % "mockito-core" % "5.19.0" % Test,
+      "com.h2database" % "h2" % "2.3.232" % Test
     ),
+
+    // Coverage exclusions
+    coverageExcludedPackages := "module.*;converter.*;constant.*;error.*;*Application*",
 
     // OpenAPI code generation
     openApiGeneratorName := "scala-play-server",
