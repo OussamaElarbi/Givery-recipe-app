@@ -1,8 +1,6 @@
 package module
 
-import com.google.inject.{AbstractModule, Provides}
-import jakarta.inject.Singleton
-import jakarta.persistence.{EntityManagerFactory, Persistence}
+import com.google.inject.AbstractModule
 import org.givery.recipe.api.RecipeApi
 import service.RecipeApiImpl
 

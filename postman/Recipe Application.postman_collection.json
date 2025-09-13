@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "f92bf9c0-70f4-4691-9947-67fc5559d09d",
+		"name": "Recipe Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14810421"
+	},
+	"item": [
+		{
+			"name": "create Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Spaghetti Bolognese\",\n  \"making_time\": \"30 min\",\n  \"serves\": \"2 people\",\n  \"ingredients\": \"spaghetti, ground beef, tomato sauce, onions, garlic\",\n  \"cost\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://givery-recipe-app.onrender.com/recipes",
+					"protocol": "https",
+					"host": [
+						"givery-recipe-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Recipes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://givery-recipe-app.onrender.com/recipes",
+					"protocol": "https",
+					"host": [
+						"givery-recipe-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update recipe",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Spaghetti Bolognese\",\n    \"making_time\": \"30 min\",\n    \"serves\": \"2 people\",\n    \"ingredients\": \"spaghetti, ground beef, tomato sauce, onions, garlic\",\n    \"cost\": 800\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://givery-recipe-app.onrender.com/recipes/3",
+					"protocol": "https",
+					"host": [
+						"givery-recipe-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
