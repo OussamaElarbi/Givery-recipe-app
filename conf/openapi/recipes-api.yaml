@@ -166,7 +166,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    # ---------- Request Schemas ----------
     CreateRecipeRequest:
       type: object
       required:
@@ -227,8 +226,6 @@ components:
           type: integer
           minimum: 0
           example: 450
-
-    # ---------- Response Schemas ----------
     CreateRecipeResponse:
       type: object
       properties:
@@ -303,6 +300,25 @@ components:
         cost:
           type: string
           example: "1000"
+        _links:
+          $ref: '#/components/schemas/HateoasLinks'
+    HateoasLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HateoasLink'
+        update:
+          $ref: '#/components/schemas/HateoasLink'
+        delete:
+          $ref: '#/components/schemas/HateoasLink'
+    HateoasLink:
+      type: object
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+          default: "GET"
     GetRecipeResponse:
       type: object
       properties:
@@ -347,6 +363,8 @@ components:
         cost:
           type: string
           example: "450"
+        _links:
+          $ref: '#/components/schemas/HateoasLinks'
     DeleteRecipeResponse:
       type: object
       properties:
@@ -358,7 +376,4 @@ components:
       properties:
         message:
           type: string
-          example: An error occurred
-        required:
-          type: string
-          example: title, making_time, serves, ingredients, cost
+          example: Error message

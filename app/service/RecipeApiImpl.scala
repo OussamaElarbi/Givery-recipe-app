@@ -20,7 +20,9 @@ import org.givery.recipe.model.{
   UpdateRecipeItem,
   UpdateRecipeRequest,
   UpdateRecipeResponse,
-  Recipe as RecipeDTO
+  Recipe as RecipeDTO,
+  HateoasLinks,
+  HateoasLink
 }
 import play.api.Logging
 import repository.RecipeRepository
@@ -146,7 +148,8 @@ class RecipeApiImpl @Inject() (recipeRepository: RecipeRepository) extends Recip
       making_time = r.makingTime,
       serves = r.serves,
       ingredients = r.ingredients,
-      cost = r.cost.toString
+      cost = r.cost.toString,
+      _links = Some(createHateoasLinks(r.id))
     )
 
   // Map entity to update response item
@@ -156,7 +159,16 @@ class RecipeApiImpl @Inject() (recipeRepository: RecipeRepository) extends Recip
       making_time = r.makingTime,
       serves = r.serves,
       ingredients = r.ingredients,
-      cost = r.cost.toString
+      cost = r.cost.toString,
+      _links = Some(createHateoasLinks(r.id))
+    )
+
+  // Create HATEOAS links for a recipe
+  private def createHateoasLinks(id: Long): HateoasLinks =
+    HateoasLinks(
+      self = Some(HateoasLink(href = Some(s"/recipes/$id"), method = Some("GET"))),
+      update = Some(HateoasLink(href = Some(s"/recipes/$id"), method = Some("PATCH"))),
+      delete = Some(HateoasLink(href = Some(s"/recipes/$id"), method = Some("DELETE")))
     )
 
 }
